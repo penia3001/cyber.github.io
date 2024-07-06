@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnerCharm - İç Giyimde Zarafet ve Şıklık</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Reset and basic styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background-color: #fff;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 95%;
+            max-width: 1000px;
+            margin: auto;
+            padding: 0 15px;
+        }
+
+        header {
+            background-color: #fff;
+            color: #000;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            width: 300px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: #000;
+            text-decoration: none;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ff4081;
+        }
+
+        .hero {
+            background-image: url('https://i.hizliresim.com/k2bys0k.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #000;
+        }
+
+        .hero .btn {
+            background-color: #ff4081;
+            color: #fff;
+            border: none;
+            padding: 1rem 2rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .hero .btn:hover {
+            background-color: #d81b60;
+        }
+
+        .category {
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .category h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            font-size: 2.5rem;
+            color: #555;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            justify-items: center;
+        }
+
+        .product {
+            background-color: #fff;
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 4px;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .product h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.8rem;
+            color: #333;
+        }
+
+        .product p.price {
+            font-weight: bold;
+            color: #000;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .product .btn {
+            background-color: #ff4081;
+            color: #fff;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            font-size: 1rem;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .product .btn:hover {
+            background-color: #d81b60;
+        }
+
+        footer {
+            background-color: #fff;
+            color: #000;
+            text-align: center;
+            padding: 1rem 0;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .marquee_container {
+            width: 100%;
+            overflow: hidden;
+            background: #fff;
+            color: #000;
+        }
+
+        .marquee_wrapper {
+            display: flex;
+            animation: marquee 10s linear infinite;
+        }
+
+        .marquee_textContainer {
+            white-space: nowrap;
+            padding: 1rem;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        #introduce-box {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 15px;
+            background-color: #fff;
+            color: #000;
+        }
+
+        .introduce-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #000;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .introduce-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .introduce-list li {
+            margin-bottom: 0.5rem;
+            color: #000;
+            background-color: #fff;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+
+        #contact-box {
+            margin-top: 1rem;
+            background-color: #fff;
+            color: #000;
+        }
+
+        .social-link {
+            margin-top: 1rem;
+        }
+
+        .social-link a {
+            color: #000;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        .social-link a:hover {
+            color: #ff4081;
+        }
+
+        .footer-bottom {
+            background-color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+            color: #000;
+            margin-top: 1rem;
+        }
+
+        .footer_copyright {
+            background-color: #fff;
+            color: #000;
+            text-align: center;
+            padding: 0.5rem 0;
+            font-size: 0.8rem;
+        }
+
+        .footer_copyright a {
+            color: #000;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <img src="https://i.hizliresim.com/7k5dkyb.JPG" alt="InnerCharm Logo" class="logo">
+        </div>
+    </header>
+
+<section class="hero">
+    <div class="hero-overlay">
+        <h1>İç Giyimde Zarafet ve Şıklık</h1>
+        <a href="http://localhost:8158/Sonson.html" class="btn">Keşfet</a>
+       </div>
+    </section>
+
+    <div class="marquee_container">
+        <div class="marquee_wrapper">
+            <div class="marquee_textContainer">
+                <p>Yeni Sezon Ürünlerinde Büyük İndirimler! &nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </div>
+            <div class="marquee_textContainer">
+                <p>Ücretsiz Kargo Fırsatını Kaçırmayın! &nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </div>
+            <div class="marquee_textContainer">
+                <p>İlk Altışverişinize %20 İndirim! &nbsp;&nbsp;&nbsp;&nbsp;</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="introduce-box">
+        <div class="container">
+            <h2 class="category">InnerCharm Hakkında</h2>
+            <div class="introduce-item">
+                <div class="introduce-content">
+                    <p>InnerCharm, iç giyimde zarafet ve şıklığı ön planda tutan bir markadır. Her bir ürünümüzde kalite ve konforu bir araya getiriyoruz. Müşteri memnuniyeti ve güvenli alışveriş ilkeleriyle hareket ediyoruz.</p>
+                </div>
+            </div>
+            <div class="introduce-item">
+                <div class="introduce-content">
+                    <h3 class="introduce-title">Ürünlerimiz</h3>
+                    <ul class="introduce-list">
+                        <li>Kadın İç Çamaşırı</li>
+                        <li>Erkek İç Çamaşırı</li>
+                        <li>Çocuk İç Giyim Ürünleri</li>
+                        <li>Gecelikler ve Pijamalar</li>
+                        <li>Büyük Beden İç Giyim</li>
+                    </ul>
+                </div>
+            </div>
+<div class="introduce-item">
+    <div class="introduce-content">
+        <h3 class="introduce-title">İletişim</h3>
+        <div id="contact-box">
+            <p>İletişim için bize aşağıdaki kanallardan ulaşabilirsiniz:</p>
+            <ul>
+                <li>Telefon: <a href="https://api.whatsapp.com/send?phone=+905426825003">+90 542 682 50 03</a></li>
+                <li>Email: <a href="mailto:info@innercharm.com">info@innercharm.com</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+    <footer>
+        <div class="footer-bottom">
+            <p>© 2024 InnerCharm&R3DTEAM. Tüm hakları saklıdır. | <a href="#">Gizlilik Politikası</a> | <a href="#">Kullanım Koşulları</a></p>
+        </div>
+    </footer>
+</body>
+
+</html>
